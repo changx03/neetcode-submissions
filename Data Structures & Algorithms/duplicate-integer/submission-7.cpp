@@ -1,0 +1,18 @@
+#include <unordered_set>
+
+class Solution {
+   public:
+    bool hasDuplicate(vector<int>& nums) {
+        unordered_set<int> seen;
+        seen.reserve(nums.size());
+
+        for (const int& val : nums) {
+            if (seen.find(val) != seen.end()) {
+                return true;
+            }
+            seen.emplace(val);
+        }
+
+        return false;
+    }
+};
